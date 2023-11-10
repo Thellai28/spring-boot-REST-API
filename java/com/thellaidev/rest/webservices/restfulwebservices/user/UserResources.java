@@ -39,8 +39,15 @@ public class UserResources {
 		}
 		
 		EntityModel entityModel = EntityModel.of(user);
+		// EntityModel will  like a wrapper, that will contain the data that is associated with user
+		// and it also holds space to hold all the links, that you have to show along with the actual 
+		// data...
 		WebMvcLinkBuilder link = linkTo(methodOn(this.getClass()).retrieveAllUsers() );
+		// WebMvcLinkBuilder -> denotes the space in the entityModel,where you can store all the 
+		// links, in WebMvcLinkBuilder, we have to give the co-ordinates of the methods and its 
+		// class, so that the the link to that method will be directly shown as link : 
 		entityModel.add(link.withRel("all-Users"));
+		// Once we have added the links into the WebMvcLinkBuilder, add it to the entity manager.
 		
 		// Adding another link : 
 		WebMvcLinkBuilder link2 = linkTo(methodOn(this.getClass() ).retrieveAllUsers());
